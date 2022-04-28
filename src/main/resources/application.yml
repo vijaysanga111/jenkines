@@ -1,0 +1,30 @@
+server:
+ port: 8099
+## MULTIPART (MultipartProperties)
+# Enable multipart uploads
+spring:
+ application:
+  name: document-service
+ datasource:
+  url: jdbc:postgresql://db:5432/document?CreateDatabaseIfNotExist=true
+  username: admin
+  password: secretp@sswoRd
+  initialization-mode: always
+  driver-class-name: org.postgresql.Driver
+ jpa:
+  hibernate:
+   ddl-auto: create-drop
+  properties:
+   hibernate:
+    dialect : org.hibernate.dialect.PostgreSQL95Dialect 
+    namingStrategy: org.hibernate.cfg.PhysicalNamingStrategy
+ servlet:
+  multipart:
+   enabled: true
+   file-size-threshold: 1KB
+   max-file-size: 20MB
+   max-request-size: 20MB
+   
+file:
+ upload-dir: Documents/CashupDocs   
+ 
